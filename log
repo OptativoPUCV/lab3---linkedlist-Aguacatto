@@ -12,3 +12,9 @@ list.c:35:8: error: ‘List’ {aka ‘struct List’} has no member named ‘si
       |        ^~
 Compilation failed
 e96167b
+Fri 29 Mar 2024 10:35:16 PM UTC: 
+ list.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+ tests:  1|5
+total_score: 10/70
+413c517
