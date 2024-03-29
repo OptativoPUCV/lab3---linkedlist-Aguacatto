@@ -54,3 +54,20 @@ Fri 29 Mar 2024 10:42:11 PM UTC:
  1 file changed, 5 insertions(+), 2 deletions(-)
  tests:  0|0
 8b77099
+Fri 29 Mar 2024 10:44:31 PM UTC: 
+ list.c | 1 +
+ 1 file changed, 1 insertion(+)
+In file included from test.c:5:
+list.c: In function ‘nextList’:
+list.c:49:3: error: this ‘if’ clause does not guard... [-Werror=misleading-indentation]
+   49 |   if (list->current !=NULL)
+      |   ^~
+list.c:51:5: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘if’
+   51 |     return list->current->data;
+      |     ^~~~~~
+list.c:52:3: error: ‘else’ without a previous ‘if’
+   52 |   else return NULL;
+      |   ^~~~
+cc1: all warnings being treated as errors
+Compilation failed
+5d48a4d
