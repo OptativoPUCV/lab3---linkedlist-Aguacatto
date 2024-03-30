@@ -17,6 +17,7 @@ struct List {
     Node * current;
 };
 
+typedef List List;
 
 Node * createNode(void * data) {
     Node * new = (Node *)malloc(sizeof(Node));
@@ -83,9 +84,10 @@ void pushFront(List * list, void * data)
   if(list->tail == NULL) list->tail=newNode;
 }
 
-void pushBack(List * list, void * data) {
-    list->current = list->tail;
-    pushCurrent(list,data);
+void pushBack(List * list, void * data)
+{
+  list->current = list->tail;
+  pushCurrent(list,data);
 }
 
 void pushCurrent(List * list, void * data)
