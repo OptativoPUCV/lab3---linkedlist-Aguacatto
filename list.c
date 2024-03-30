@@ -17,7 +17,6 @@ struct List {
     Node * current;
 };
 
-typedef List List;
 
 Node * createNode(void * data) {
     Node * new = (Node *)malloc(sizeof(Node));
