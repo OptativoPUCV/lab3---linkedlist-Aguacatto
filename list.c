@@ -91,22 +91,36 @@ void pushCurrent(List * list, void * data)
   if(list->tail == list->current) list->tail = newNode;
 }
 
-void * popFront(List * list) {
-    list->current = list->head;
-    return popCurrent(list);
+void * popFront(List * list) 
+{
+  list->current = list->head;
+  return popCurrent(list);
 }
 
-void * popBack(List * list) {
-    list->current = list->tail;
-    return popCurrent(list);
+void * popBack(List * list)
+{
+  list->current = list->tail;
+  return popCurrent(list);
 }
 
-void * popCurrent(List * list) {
-    return NULL;
+void * popCurrent(List * list) 
+{
+  if(list->current == NULL) return NULL;
+  if(list->current->next == NULL) return NULL;
+  void * data = list->current->data;
+  if(list->current->prev) list->current->prev->next = list->current->next;
+  if(list->current->next) list->current->next->prev = list->current->prev;
+  if(list->head == list->current) list->head = list->current->next;
+  if(list->tail == list->current) list->tail = list->current->prev;
+  free(list->current);
+  list->current = NULL;
+  return data;
 }
 
-void cleanList(List * list) {
-    while (list->head != NULL) {
-        popFront(list);
-    }
+void cleanList(List * list)
+{
+  while (list->head != NULL)
+  {
+    popFront(list);
+  }
 }
